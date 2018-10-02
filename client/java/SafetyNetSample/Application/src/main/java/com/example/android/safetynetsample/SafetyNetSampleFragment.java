@@ -50,6 +50,8 @@ public class SafetyNetSampleFragment extends Fragment {
 
     private static final String BUNDLE_RESULT = "result";
 
+    private static final String API_KEY = "AIzaSyDSov903qF9YlBThtJ4y0xpAgKT9f0cxZw";
+
     private final Random mRandom = new SecureRandom();
 
     private String mResult;
@@ -127,7 +129,7 @@ public class SafetyNetSampleFragment extends Fragment {
          configuration and read from the gradle.properties file.
          */
         SafetyNetClient client = SafetyNet.getClient(getActivity());
-        Task<SafetyNetApi.AttestationResponse> task = client.attest(nonce, BuildConfig.API_KEY);
+        Task<SafetyNetApi.AttestationResponse> task = client.attest(nonce, API_KEY);
 
         task.addOnSuccessListener(getActivity(), mSuccessListener)
                 .addOnFailureListener(getActivity(), mFailureListener);
